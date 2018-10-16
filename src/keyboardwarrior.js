@@ -46,6 +46,8 @@ export class Game {
 
   playerDodgeSuccess() {
     clearTimeout(this.currentAction);
+    this.keyCode = null;
+    this.randomKey = null;
     this.currentActionCancel = this.emptyFunction;
     this.currentText = 'You have successfully dodged!';
     this.currentAction = setTimeout(() => {
@@ -66,6 +68,8 @@ export class Game {
 
   playerAttackSuccess() {
     clearTimeout(this.currentAction);
+    this.keyCode = null;
+    this.randomKey = null;
     this.currentActionCancel = this.emptyFunction;
     this.currentText = "You hit the enemy!";
     this.enemyHealth--;
@@ -113,6 +117,9 @@ export class Game {
     } else if (this.health < 1) {
       this.currentText = "You are dead!";
     }
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
   }
 
 
